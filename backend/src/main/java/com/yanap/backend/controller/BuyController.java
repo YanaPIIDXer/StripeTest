@@ -1,5 +1,6 @@
 package com.yanap.backend.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @RestController
+@CrossOrigin
 public class BuyController {
     @AllArgsConstructor
     public class Response {
