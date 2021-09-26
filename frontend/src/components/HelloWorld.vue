@@ -9,6 +9,7 @@
 
 <script>
 import { loadStripe } from '@stripe/stripe-js';
+import conn from '../modules/BasicConnection';
 
 export default {
   name: 'HelloWorld',
@@ -26,9 +27,13 @@ export default {
   },
   methods: {
     submit: async function () {
-      const response = await this.stripe.createToken(this.card);
+      var response = await this.stripe.createToken(this.card);
+      console.log(response);
       const token = response.token.id;
-      alert(token);
+      var params = new URLSearchParams();
+      params.append("token", token);
+      response = await conn.post("http://localhost:3000/buy", params);
+      console.log(response);
     }
   }
 }
